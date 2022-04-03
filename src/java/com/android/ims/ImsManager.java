@@ -962,6 +962,14 @@ public class ImsManager implements FeatureUpdates {
         return false;
     }
 
+    public static void updateImsServiceConfig(Context context, int phoneId, boolean force) {
+        ImsManager mgr = ImsManager.getInstance(context, phoneId);
+        if (mgr != null) {
+            mgr.updateImsServiceConfig();
+        }
+        Rlog.e(TAG, "updateImsServiceConfig: ImsManager null, returning without update.");
+    }
+    
     /**
      * Returns the user configuration of VT setting per slot. If not set, it
      * returns true as default value.
